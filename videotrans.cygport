@@ -13,3 +13,16 @@ SRC_URI="mirror://sourceforge/videotrans/videotrans-${VERSION}.tar.bz2"
 PATCH_URI="1.6.1-vpath.patch"
 
 videotrans_REQUIRES="dvdauthor ffmpeg ImageMagick mjpegtools mplayer"
+
+# do not require runtime deps at buildtime
+CYGCONF_ARGS="
+	ac_cv_prog_MPLAYER=yes
+	ac_cv_prog_FFMPEG=yes
+	ac_cv_prog_MPEG2ENC=yes
+	ac_cv_prog_MP2ENC=yes
+	ac_cv_prog_PNG2YUV=yes
+	ac_cv_prog_JPEG2YUV=yes
+	ac_cv_prog_CONVERT=yes
+	ac_cv_prog_IDENTIFY=yes
+	ac_cv_prog_SPUMUX=yes
+"
